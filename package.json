@@ -1,0 +1,27 @@
+{
+  "name": "showcase",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd xserver && node server",
+    "server": "cd xserver && nodemon server",
+    "client": "cd xclient && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Romenick Tester",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.12.3"
+  },
+  "keywords": [],
+  "description": ""
+}
