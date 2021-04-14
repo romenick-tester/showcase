@@ -1,9 +1,14 @@
-import React, { useContext, createContext } from "react";
+import React, { useContext, createContext, useState } from "react";
 
 export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
-    return <AppContext.Provider value={{ sample: "hello" }}>{children}</AppContext.Provider>
+    const [sidebar, setSidebar] = useState(false);
+
+    const vars = { sidebar };
+    const funcs = { setSidebar };
+
+    return <AppContext.Provider value={{ ...vars, ...funcs }}>{children}</AppContext.Provider>
 }
 
 export const useGlobalContext = () => {

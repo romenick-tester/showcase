@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import styled from "styled-components";
 
 function Alert() {
-    const [isActive, setIsActive] = useState(false);
+    const [show, setShow] = useState(false);
 
     useEffect(() => {
         let item1 = setTimeout(() => {
-            setIsActive(true);
+            setShow(true);
 
             setTimeout(() => {
-                setIsActive(false)
+                setShow(false)
             }, 3000)
         }, 3000);
 
@@ -19,24 +19,25 @@ function Alert() {
     }, [])
 
     return (
-        <Wrapper className={`${isActive ? "active" : null}`}>
+        <Wrapper className={`${show ? "active" : null}`}>
             <h4>alert component</h4>
         </Wrapper>
     )
 }
 
 const Wrapper = styled.div`
+    min-width: 100px;
     position: fixed;
-    top: 10px;
+    top: 15px;
     right: 0;
-    z-index: 100;
-    max-width: 10vw;
     transform: translateX(100%);
-    transition: 1s ease;
-
+    transition: ease 1s;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     background: yellow;
     padding: 0.5rem;
     color: black;
+    z-index: 100;
 
     &.active {
         transform: translateX(0);

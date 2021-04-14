@@ -1,6 +1,8 @@
-import Navbar from "./Navbar";
-import Alert from "./Alert";
+import Navbar from "./partials/Navbar";
+import Footer from "./partials/Footer";
+import Sidebar from "./partials/Sidebar";
+import Alert from "./partials/Alert";
 
 export {
-    Navbar, Alert,
+    Navbar, Alert, Footer, Sidebar,
 }
