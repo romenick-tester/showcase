@@ -11,6 +11,7 @@ import img10 from "./images/projects_screenshot/menu.png";
 
 import spinner from "./miscs/spinner.gif";
 import no_image from "./miscs/no_image.png";
+import who from "./miscs/whosthatpokemon.jpg";
 
 const thumbnails = [
     {
@@ -68,5 +69,5 @@ const thumbnails = [
 
 
 export {
-    thumbnails, no_image, spinner
+    thumbnails, no_image, spinner, who
 };
