@@ -12,9 +12,12 @@ export const pokemonReducers = (state, action) => {
             return { ...state, loading: true, error: false };
 
         case GET_ALL_POKEMON_SUCCESS:
-            return { ...state, list: payload, error: false };
+            return { ...state, loading: false, list: payload, error: false };
 
         case GET_ALL_POKEMON_ERROR:
-            return { ...state, list: [], error: true };
+            return { ...state, loading: false, list: [], error: true };
+
+        default:
+            return state;
     }
 }
