@@ -32,6 +32,7 @@ const Wrapper = styled.aside`
     left: 0;
     top: 4rem;
     transform: translateX(-100%);
+    z-index: 10;
 
     border: 1px solid black;
     border-bottom-right-radius: 2rem;

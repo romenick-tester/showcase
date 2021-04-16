@@ -20,23 +20,48 @@ ul {
   list-style: none;
 }
 
-#homepage {
+#pokemon-page {
   max-width: 1200px;
-  margin: 4rem auto 1.6rem auto;
+  margin: 5rem auto 2rem auto;
   padding: 0 2rem;
 }
 
-#homepage header {
+#pokemon-page header {
+  background-color: #333;
+  border-radius: 50px;
   margin-bottom: 1rem;
+  display: flex;
 }
 
 @media screen and (min-width: 480px) and (max-width: 520px) {
-  #homepage header {
+  #pokemon-page header {
     margin-bottom: 0.5rem;
   }
 }
 
-#homepage main {
+@media screen and (max-width: 1200px) {
+  #pokemon-page header {
+    border-radius: 0;
+  }
+}
+
+#pokemon-page header .icons-wrapper {
+  margin: auto;
+}
+
+#pokemon-page header .icons-wrapper a img.type-icon {
+  width: 50px;
+  margin: 0 0.2rem;
+  opacity: 0.5;
+}
+
+#pokemon-page header .icons-wrapper a img.type-icon:hover {
+  width: 50px;
+  margin: 0 0.2rem;
+  opacity: 1;
+}
+
+#pokemon-page main {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(3rem, auto);
@@ -44,32 +69,32 @@ ul {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-  #homepage main {
+  #pokemon-page main {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 @media screen and (min-width: 520px) and (max-width: 768px) {
-  #homepage main {
+  #pokemon-page main {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media screen and (min-width: 480px) and (max-width: 520px) {
-  #homepage main {
+  #pokemon-page main {
     grid-template-columns: 1fr;
     grid-gap: 0.5rem;
   }
 }
 
-#homepage main article {
+#pokemon-page main article {
   border: 1px solid black;
   min-height: 350px;
   max-width: calc(350px * 2);
 }
 
 @media (min-width: 480px) and (max-width: 520px) {
-  #homepage main article {
+  #pokemon-page main article {
     min-height: 200px;
   }
 }

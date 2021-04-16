@@ -12,12 +12,14 @@ function Navbar() {
             <div className="container">
                 <div className="content">
                     <section className="content-title">
-                        <h1>showcase</h1>
+                        <Link to="/">
+                            <h1>showcase</h1>
+                        </Link>
                     </section>
 
                     <section className="content-links">
                         <div className="links-item">
-                            <a href="#!">link 1</a>
+                            <Link to="/pokemon">Pokemon</Link>
                         </div>
                         <div className="links-item">
                             <a href="#!">link 2</a>
@@ -46,6 +48,7 @@ const Wrapper = styled.nav`
     background: #333;
     color: white;
     box-shadow: inset -2px -2px 5px #111;
+    z-index: 10;
 
     .container {
         max-width: 1200px;

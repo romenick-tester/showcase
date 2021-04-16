@@ -15,6 +15,9 @@ const PokemonSchema = new Schema({
         type: String,
         default: "na"
     },
+    typeIcons: {
+        type: Array
+    },
     level: {
         type: Number,
         default: Math.floor(Math.random() * 50) + 1
@@ -33,6 +36,10 @@ const PokemonSchema = new Schema({
     },
     images: {
         type: Array
+    },
+    color: {
+        type: String,
+        default: "na"
     },
     assets: {
         type: Array

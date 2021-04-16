@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import no_image from "../../assets/images/miscs/whosthatpokemon.jpg";
 
-const Article = ({ _id, name, type1, type2, image, level }) => {
+const Article = ({ _id, name, type1, type2, image, level, color }) => {
 
     return (
-        <Wrapper>
+        <Wrapper style={{ backgroundColor: color }}>
             <div className="section-header">
                 <div className="header-title">
                     <h4>{name}</h4>
@@ -21,10 +22,9 @@ const Article = ({ _id, name, type1, type2, image, level }) => {
             <div className="section-body">
                 <div className="info">
                     <p className="show"><span>Name: </span> {name}</p>
-                    <p><span>type: </span>{type1}{type2 !== "na" && `/${type2}`}</p>
                 </div>
-                <div className="button">
-                    <button type="button">details</button>
+                <div className="btn-wrapper">
+                    <Link to={`/pokemon/${_id}`}>details</Link>
                 </div>
             </div>
         </Wrapper>
@@ -32,14 +32,8 @@ const Article = ({ _id, name, type1, type2, image, level }) => {
 };
 
 const Wrapper = styled.article`
-    //$desktop: 1200px
-    //$laptop: 1024px
-    //$tablet: 768px
-    //$iphone: 520px
-    //$phone: 480px
-    > * {
-        border: 1px dashed red;
-    }
+    //desktop[1200] => laptop[1024] => tablet[768] => iphone[520] => phone[480]
+    //> * { border: 1px dashed red }
 
     background-color: lightblue;
     font-size: 15px;
@@ -50,30 +44,46 @@ const Wrapper = styled.article`
     grid-template-columns: 1fr;
     grid-auto-rows: minmax(1rem, auto);
 
-    @media screen and (max-width: 520px) {
-        grid-template-columns: 3fr 2fr;
-        .section-header .header-title  p, h4 { display: none }
-        .section-info { padding-top: 2rem }
-    }
-
     .section-header {
         display: flex;
         flex-direction: column;
 
         .header-title { display: flex; justify-content: space-between }
-        .header-image { width: 100%; border: 2px double gold }
-        .header-image img { width: 100%; height: 200px; object-fit: cover }
+        .header-image { width: 100%; margin-top: 2rem }
+        .header-image img { width: 100%; height: 200px; object-fit: contain }
+
+        @media screen and (max-width: 520px) {
+            .header-image { margin-top: 0 }
+        }
     }
 
     .section-body {
         display: flex;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: space-evenly;
+        //> * { border: 1px dashed yellow }
 
+        p span { font-weight: 600; text-transform: capitalize }
         .info .show { display: none }
-        .button { display: flex }
-        .button button { margin: auto }
+        .btn-wrapper { display: flex }
+        .btn-wrapper a {
+            margin: auto; 
+            cursor: pointer; 
+            padding: 0.5rem 1rem;
+            border: 1px solid black;
+            border-radius: 5px;
+            color: white;
+            background-color: black; 
+        }
     }
-    
+
+    @media screen and (max-width: 520px) {
+        grid-template-columns: 3fr 2fr;
+        .section-header .header-title  p, h4 { display: none }
+        .section-body { margin-left: 0.5rem }
+        .section-body .info p.show { display: block }
+        .section-body .info { line-height: 2rem }
+    }
 `
 
 export default Article;

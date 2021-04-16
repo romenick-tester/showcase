@@ -13,9 +13,12 @@ const registerPokemon = asyncHandler(async (req, res) => {
     const newPokemon = new Pokemon({
         name: req.body.name,
         type1: req.body.type1,
+        type2: req.body.type2,
         evolveFrom: req.body.evolveFrom,
         evolveTo: req.body.evolveTo,
-        assets: req.body.assets
+        assets: req.body.assets,
+        color: req.body.color,
+        typeIcons: [req.body.type1, req.type.type2 !== "na" && req.body.type2]
     });
 
     const pokemon = await newPokemon.save();

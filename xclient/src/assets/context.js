@@ -15,11 +15,15 @@ export const AppProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     useEffect(() => {
-        getAllPokemon(dispatch);
+        getPokemon()
     }, [])
 
+    const getPokemon = (type) => {
+        getAllPokemon(dispatch, type);
+    }
+
     const vars = { ...state, sidebar };
-    const funcs = { setSidebar };
+    const funcs = { setSidebar, getPokemon };
 
     return <AppContext.Provider value={{ ...vars, ...funcs }}>{children}</AppContext.Provider>
 }

@@ -5,11 +5,11 @@ import {
     GET_ALL_POKEMON_ERROR,
 } from "./constants";
 
-const getAllPokemon = async (dispatch) => {
+const getAllPokemon = async (dispatch, type = "") => {
     try {
         dispatch({ type: GET_ALL_POKEMON_REQUEST });
 
-        const { data } = await axios.get("/api/pokemon");
+        const { data } = await axios.get(`/api/pokemon?type=${type}`);
 
         dispatch({ type: GET_ALL_POKEMON_SUCCESS, payload: data })
     } catch (err) {
